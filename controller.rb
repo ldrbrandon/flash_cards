@@ -1,3 +1,5 @@
+require_relative 'flash_cards.rb'
+
 class Controller
 
   def initialize(file)
@@ -44,9 +46,9 @@ class Controller
   end
 
   def ask_to_parse(file)
-    #FileParser.parse(file)
+    FileParser.parse(file)
     #dummy
-    puts "ask to parse - input file, return hash"
+    #puts "ask to parse - input file, return hash"
   end      
 
   def ask_to_create_set_from_parsed_file(hash_from_parsed_file)
@@ -95,6 +97,6 @@ class Viewer
   end
 end
 
-game = Controller.new('file')
+game = Controller.new('flashcard_sample.txt')
 game.run!
 

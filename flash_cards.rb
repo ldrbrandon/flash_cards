@@ -17,4 +17,4 @@ class FileParser
 end
 
 
-FileParser.parse('flashcard_sample.txt')
+# FileParser.parse('flashcard_sample.txt')
