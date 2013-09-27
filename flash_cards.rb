@@ -2,7 +2,7 @@
 
 class FileParser
   
-  def self.parse_file(file)
+  def self.parse(file)
     parsed_file_array = []
     array_of_pairs = []
     File.open(file).each do |row|
@@ -17,4 +17,4 @@ class FileParser
 end
 
 
-FileParser.parse_file('flashcard_sample.txt')
+FileParser.parse('flashcard_sample.txt')
