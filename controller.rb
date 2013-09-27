@@ -1,11 +1,12 @@
 require_relative 'flash_cards.rb'
+require_relative 'card_classes.rb'
 
 class Controller
 
   def initialize(file)
     @file = file
-    @parsed_file = ask_to_parse(@file)
-    @set = ask_to_create_set_from_parsed_file(@parsed_file)
+    @hash_from_parsed_file = ask_to_parse(@file)
+    @set = ask_to_create_set_from_parsed_file(@hash_from_parsed_file)
     @messages = { intro: "Welcome to Flash Cards Drill", correct: "correct", incorrect: "oops incorrect, please try again", question: "Please type in the term for the following definition", clear: "\e[2J\e[f", title: "Flash Cards Drill"}
     #dummy_variable
   end
@@ -22,17 +23,12 @@ class Controller
       #dummy - below
       Viewer.render(@messages[:title]) unless current_flash_index == 0
       Viewer.render(@messages[:question])
-      Viewer.render("rendering current_flashcard definition")
+      Viewer.render(current_flashcard.definition)
       user_answer = get_answer_from_user
-      #if answer_correct?({answer: user_answer, flashcard: current_flashcard})
-      #dummy-below
-      puts "checking if user answer correct"
-      if user_answer == "yes"
-        #end_dummy
+      if answer_correct?({answer: user_answer, flashcard: current_flashcard})
         clear_screen
         Viewer.render(@messages[:correct])
-        #need flashcard object to test below
-        #Viewer.render("#{current_flashcard.term}: #{current_flashcard.definition}")
+        Viewer.render("#{current_flashcard.term}: #{current_flashcard.definition}")
         current_flash_index +=1
       else
         Viewer.render(@messages[:incorrect])
@@ -47,28 +43,26 @@ class Controller
 
   def ask_to_parse(file)
     FileParser.parse(file)
-    #dummy
-    #puts "ask to parse - input file, return hash"
   end      
 
   def ask_to_create_set_from_parsed_file(hash_from_parsed_file)
-        #SetOfFlashCards.new(hash_from_parsed_file)
+        SetOfFlashCards.new(hash_from_parsed_file)
         #dummy
-        puts "ask_to_create_set - input hash return set of flash cards object"
-        return 10
+        # puts "ask_to_create_set - input hash return set of flash cards object"
+        # return 10
   end
 
   def ask_model_for_flashcard(card_num)
-   # SetOfFlashCards.give_flashcard(card_num)
+   @set.get_flashcard(card_num)
    #dummy
-   puts "returning flash card #{card_num}"
-   @flashcard
+   # puts "returning flash card #{card_num}"
+   # @flashcard
   end
 
   def ask_set_for_size
-    #@set.size
-    puts "ask_for_size- return size of set(integer) " 
-    return 3
+    @set.size
+    # puts "ask_for_size- return size of set(integer) " 
+    # return 3
   end
 
   def ask_viewer_to_render(message)

@@ -47,16 +47,16 @@ end
 
 
 #testing SetOfCards shit
-terms_and_defn = [ {:term => "banana", :definition => "a yellow fruit"},
-                                {:term => "brandon", :definition => "a guy that eats double decker sandwiches"},
-                                {:term => "jeff", :definition => "a super organized, super dad"}
-                                ]
-annies_set = SetOfFlashCards.new(terms_and_defn)
-# p annies_set. terms_and_definitions #shows array of hashes from input
-# annies_set.get_set #runs the method that takes the array of hashes as input, and returns an array of FlashCard objects
-# p annies_set.set_of_flashcard_objects #SetOfFlashCards.set_of_flashcard_objects gives you array of FlashCard objects
-# p annies_set.get_flashcard(2) #SetOfFlashCards.get_flashcard(2) returns the FlashCard object at index 2 in the set array
-p annies_set.size #SetOfFlashCards.size returns size of array of FlashCard objects
+# terms_and_defn = [ {:term => "banana", :definition => "a yellow fruit"},
+#                                 {:term => "brandon", :definition => "a guy that eats double decker sandwiches"},
+#                                 {:term => "jeff", :definition => "a super organized, super dad"}
+#                                 ]
+# annies_set = SetOfFlashCards.new(terms_and_defn)
+# # p annies_set. terms_and_definitions #shows array of hashes from input
+# # annies_set.get_set #runs the method that takes the array of hashes as input, and returns an array of FlashCard objects
+# # p annies_set.set_of_flashcard_objects #SetOfFlashCards.set_of_flashcard_objects gives you array of FlashCard objects
+# # p annies_set.get_flashcard(2) #SetOfFlashCards.get_flashcard(2) returns the FlashCard object at index 2 in the set array
+# p annies_set.size #SetOfFlashCards.size returns size of array of FlashCard objects
 
 #testing FlashCard shit
 # single_flashcard_terms_and_defn = {:term => "banana", :definition => "a yellow fruit"}
